@@ -559,7 +559,7 @@ class MapPlot {
 		var targetValue = 700;
 		
 		
-		var time_promise = d3.csv("data/All_ALL.csv").then((data) => {
+		var time_promise = d3.csv("data/All_All.csv").then((data) => {
 			var time_value = d3.scaleTime()
 			.domain(d3.extent(data, function(d){return new Date(d.date);}))
 			.range([0, targetValue])
