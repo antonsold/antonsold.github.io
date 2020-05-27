@@ -1,0 +1,185 @@
+.axis path,
+.axis line {
+  fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+svg {
+	overflow: visible;
+}
+
+.remove_space{
+	margin-bottom: -7cm;
+}
+
+.remove_space2{
+	margin-bottom: -20cm;
+}
+
+.subtitles {
+	position: relative;
+	top: -150px;
+	left: 150px;
+}
+
+.gender_button, .age_button {
+	position: relative;
+	top: 200px;
+	left: 190px;
+}
+
+.display_causes {
+	position: relative;
+	top: -250px;
+	left: 950px;
+}
+
+.gender_button select, .age_button select, .display_causes select {
+	display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 12px;
+    border: 2px solid #444;
+    border-radius: 4px;
+}
+
+.radio_button {
+	margin-top: -4cm;
+	position : relative;
+	top : -40px;
+	left : 850px;
+}
+
+.bar_radio {
+	position: relative;
+	top: -150px;
+	left: 950px;
+}
+
+input[type=radio] {
+	position : absolute;
+	visibility: hidden;
+}
+
+input[type=radio] + label {
+    background-color: #ddd;
+    padding: 5px 20px;
+    border: 2px solid #444;
+}
+
+input[type=radio]:checked + label{
+  background-color:gold;
+}
+
+.bar_radio input[type=radio] + label {
+	padding: 0px 10px;
+	width: 80px;
+	font-size: 10px;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+    stroke-linecap: round;
+}
+
+.track {
+   stroke: #000;
+   stroke-opacity: 0.3;
+   stroke-width: 10px;
+ }
+ 
+ .track-inset {
+   stroke: #dcdcdc;
+   stroke-width: 8px;
+  }
+  
+ .track-overlay {
+ 	pointer-events: stroke;
+    stroke-width: 50px;
+    stroke: transparent; 
+ }
+ 
+ .handle {
+ 	fill: #fff;
+    stroke: #000;
+    stroke-opacity: 0.5;
+    stroke-width: 1.25px;
+ }
+
+.Event1, .Event2 {
+	position: relative;
+	top : -300px;
+	left: 500px;
+}
+
+.Notes1, .Notes2 {
+	position: relative;
+	top : -250px;
+	left : 850px;
+	white-space: pre;
+}
+
+#PlayButton1, #PlayButton2, #PauseButton1, #PauseButton2, #RestartButton1, #RestartButton2 {
+	position : relative;
+    top: -115px;
+    left: 300px;
+	background: #f08080;
+    border: 2px solid #444;
+}
+
+#ZoomIn1, #ZoomIn2, #ZoomOut1, #ZoomOut2 {
+	position: relative;
+	top: 300px;
+	left: 850px;
+	background: #d3e2ff;
+	height:30px;
+    width:30px;
+    font-family: sans-serif, Arial;
+    font-size: 12px;
+    border: 2px solid #444;
+    border-radius: 3px;
+	
+}
+
+#provinces_text {
+	white-space: pre;
+	position: absolute;
+	background: #deedfb;
+}
+
+.Fatality1 {
+	position: relative;
+	top: 0px;
+	left: 1100px;
+}
+
+nav ul {
+	list-style-type: none;
+	position: relative;
+	top: -850px;
+	left: 950px;
+	height:600px;
+	overflow:hidden; 
+	overflow-y:scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+div.tooltip {
+    color: #222;
+    background-color: #fff;
+    padding: .5em;
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+}
