@@ -43,6 +43,7 @@ class MapCircle {
 		var playButton = d3.select("#PlayButton2");
 		var pauseButton = d3.select("#PauseButton2");
 		var restartButton = d3.select("#RestartButton2");
+		var speedButton = d3.select("SpeedButton2");
 		var genderButton = d3.select("#Gender2");
 		var ageButton = d3.select("#Age2");
 		
@@ -174,7 +175,7 @@ class MapCircle {
 		
 		// Button that play the time slider
 		playButton.on("click", function() {
-			timer = setInterval(step, 100);
+			timer = setInterval(step, 300);
 		});
 		
 		// Pause the time slider
@@ -188,6 +189,11 @@ class MapCircle {
 			update(time_value.invert(currentValue));
 			clearInterval(timer);
 		});
+		
+		// Speed 3 times the time slider
+		speedButton.on("click", function(d) {
+			timer = setInterval(step, 100);
+		})
 		
 		// Function to test if an objet is empty first used to fill forward the date events
 		function isnotEmpty(obj) {
@@ -256,9 +262,6 @@ class MapCircle {
 			Promise.all([map_promise, disease_promise]).then((results)=> {
 				let map_data = results[0];
 				let province_disease = results[1];
-				
-				var zoominButton = d3.select("#ZoomIn2");
-				var zoomoutButton = d3.select("#ZoomOut2");
 			
 				map_data.forEach(province => {
 					if (Type=="provinces") {
@@ -288,21 +291,7 @@ class MapCircle {
 				map_container = d3.select('#circles').select(".Map");
 				circle_container = d3.select("#circles").select(".Circle");
 			}
-			
-			// Ability to zoom the map
-			const zoom = d3.zoom()
-				.on('zoom', zoomed);
-			
-			// the zoom is not working when clicking or with musewheel
-			svg.call(zoom).on("dblclick.zoom", null)
-				.on("wheel.zoom", null);
-				
-			zoominButton.on("click", function() {
-				zoom.scaleBy(svg.transition().duration(750), 1.2)
-			});
-			zoomoutButton.on("click", function() {
-				zoom.scaleBy(svg.transition().duration(750), 0.8)
-			});
+
 			
 			// Create the map with provinces or municipalities
 			if (new_map==true) {
@@ -346,15 +335,6 @@ class MapCircle {
 						return "translate("+off_x+off_y+")";
 					})
 					.style("fill", "red");
-			}
-				
-			// Change the map and circles when zooming	
-			function zoomed() {
-				var t = d3.event.transform;
-				map_container.selectAll('path')
-				.attr('transform', t);
-				circle_container.selectAll("circle")
-				.attr("transform", (d)=> "translate("+[t.k*path_generator.centroid(d)[0]+t.x,+t.k*path_generator.centroid(d)[1]+t.y]+")");
 			}
 			
 			// Make the axis representing the cirle area
